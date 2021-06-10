@@ -8,6 +8,15 @@ This extension contributes four commands
 
 - `Actyx: create events`: convert the **selected** events to an event definition and create the emitter functions
 
+## Snippets
+
+| Name              | Prefix      | Description                                |
+| ----------------- | ----------- | ------------------------------------------ |
+| New tag           | tag         | create tag                                 |
+| New twin section  | twins       | create twins section                       |
+| New no Props fish | fishNoProps | create twin without (singleton / registry) |
+| New entity fish   | fishOf      | create entity or singleton twin            |
+
 ## Demo
 
 ![newFish](https://raw.githubusercontent.com/Alexander89/actyx-vscode/master/images/create-events.gif)
