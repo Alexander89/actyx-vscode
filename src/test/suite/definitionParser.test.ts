@@ -1,5 +1,4 @@
 import * as assert from 'assert'
-import * as vscode from 'vscode'
 import { convertToDefinitions, toDefPascalCase } from '../../definitionParser'
 
 suite('DefinitionParser test', () => {
@@ -104,4 +103,3 @@ suite('DefinitionParser test', () => {
     )
   })
 })
-

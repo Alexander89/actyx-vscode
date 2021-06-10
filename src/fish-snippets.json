@@ -1,0 +1,50 @@
+{
+  "new Tag": {
+    "prefix": "tag",
+    "description": "new pond tag",
+    "body": ["const $1Tag = Tag<${2:Event}>('${3:$1}')"]
+  },
+  "new twin section": {
+    "prefix": "twins",
+    "description": "new fish section",
+    "body": [
+      "export const $1Twins = {",
+      "  // Tags",
+      "  tags: {},$2",
+      "  // Twins",
+      "  // Emitters",
+      "}",
+      ""
+    ]
+  },
+  "new no Props fish": {
+    "prefix": "fishNoProps",
+    "description": "new fish without props",
+    "body": [
+      "$1: (): Fish<State, Event> => ({",
+      "  fishId: FishId.of('$2', '${1}', 0),",
+      "  initialState: { $3 },",
+      "  where: $4,",
+      "  onEvent: (state, event) => {",
+      "    return state",
+      "  },",
+      "}),",
+      ""
+    ]
+  },
+  "new fish of": {
+    "prefix": "fishOf",
+    "description": "new fish of",
+    "body": [
+      "of: (${1:id}: string): Fish<State, Event> => ({",
+      "  fishId: FishId.of('$2', ${1:id}, 0),",
+      "  initialState: { $3 },",
+      "  where: $4.withId(${1:id}),",
+      "  onEvent: (state, event) => {",
+      "    return state",
+      "  },",
+      "}),",
+      ""
+    ]
+  }
+}
