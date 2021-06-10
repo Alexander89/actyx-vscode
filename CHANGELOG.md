@@ -1,5 +1,9 @@
 # Change Log
 
+## version 0.3.1
+
+- add `Actyx: generate events with typed emitter` to the readme
+
 ## version 0.3.0
 
 - add typed emitter in events

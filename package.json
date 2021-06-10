@@ -3,7 +3,7 @@
   "displayName": "Actyx code-gen",
   "publisher": "AlexHalemba",
   "description": "Create new events from a high level syntax and write your fish in a few seconds",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "engines": {
     "vscode": "^1.56.0"
   },
