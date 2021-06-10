@@ -19,7 +19,8 @@
     "Formatters"
   ],
   "activationEvents": [
-    "onCommand:actyx-code-gen.events"
+    "onCommand:actyx-code-gen.events",
+    "onCommand:actyx-code-gen.events-emitter"
   ],
   "main": "./out/extension.js",
   "contributes": {

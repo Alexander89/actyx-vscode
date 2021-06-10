@@ -126,7 +126,7 @@ export const createUnion = (t: Type, defs: Definitions): string =>
 
 export const createEmitters = (defs: Definitions): string => defs.map(createEmitter).join('\n\n')
 export const createEmittersV2 = (document: vscode.TextDocument, defs: Definitions): string =>
-  !document.getText().includes(emitterType)
+  document.getText().includes(emitterType)
     ? defs.map(createEmitterV2).join('\n\n')
     : emitterType + '\n\n' + defs.map(createEmitterV2).join('\n\n')
 

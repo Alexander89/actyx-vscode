@@ -1,7 +1,7 @@
 import * as vscode from 'vscode'
 import { consumeSelectedBlock } from './common'
 import { convertToDefinitions } from './definitionParser'
-import { buildEvents } from './events'
+import { buildEvents, buildEventsV2 } from './events'
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -17,6 +17,8 @@ export function activate(context: vscode.ExtensionContext): void {
       vscode.window.showInformationMessage('Select your events before execute this extension')
     }
   })
+  context.subscriptions.push(eventsCommand)
+
   const eventsEmitterCommand = vscode.commands.registerCommand(
     'actyx-code-gen.events-emitter',
     async () => {
@@ -25,13 +27,12 @@ export function activate(context: vscode.ExtensionContext): void {
       if (editor && !editor.selection.isEmpty) {
         const [definition, position] = await consumeSelectedBlock(editor)
         const events = convertToDefinitions(definition)
-        await buildEvents(editor, position, events)
+        await buildEventsV2(editor, position, events)
       } else {
         vscode.window.showInformationMessage('Select your events before execute this extension')
       }
     },
   )
-  context.subscriptions.push(eventsCommand)
   context.subscriptions.push(eventsEmitterCommand)
 }
 
