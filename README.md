@@ -10,7 +10,7 @@ This extension contributes four commands
 
 ## Demo
 
-![newFish](https://raw.githubusercontent.com/Actyx/actyx-vscode/master/images/create-events.gif)
+![newFish](https://raw.githubusercontent.com/Alexander89/actyx-vscode/master/images/create-events.gif)
 
 > To access the shortcuts please press `ctrl + ⇧ + P` on a linux or windows and `⌘+⇧+P` on a mac machine.
 
