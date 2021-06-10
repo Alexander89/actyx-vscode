@@ -15,11 +15,6 @@ export const toPascalCase = (str: string): string => {
   return `${first.toUpperCase()}${rest.join('')}`
 }
 
-export const toSemantics = (str: string): string => {
-  const [first = '', ...rest] = str
-  return `${first.toLowerCase()}${rest.join('')}`
-}
-
 const getLastSeparator = (path: string): number => {
   const lastSl = path.lastIndexOf('/')
   const lastBackSl = path.lastIndexOf('\\')
@@ -86,13 +81,12 @@ export const createEnumContent = (def: Definitions): string =>
 export const createEnum = (t: Type, def: Definitions): string =>
   `export enum ${t}Type {\n${createEnumContent(def)},\n}\n`
 
-export const createTypes = (t: Type, defs: Definitions): string => {
-  return defs.map(def => createType(t, def)).join('\n') + '\n'
-}
+export const createTypes = (t: Type, defs: Definitions): string =>
+  defs.map(def => createType(t, def)).join('\n') + '\n'
 
 const createType = (t: Type, def: Definition): string => {
   const content: ReadonlyArray<any> = [
-    `  type: ${t}Type.${def.name}`,
+    `  eventType: '${def.name}'`,
     ...def.parameters.map(x => `  ${x.name}: ${x.dataType}`),
   ]
   return `export type ${toDefPascalCase(def)}${t} = {\n${content.join('\n')}\n}`
@@ -103,9 +97,22 @@ export const createUnionContent = (t: Type, defs: Definitions): string =>
     .map(x => '  | ' + x + t)
     .join('\n')
 
-export const createUnion = (t: Type, defs: Definitions): string => {
-  return `export type ${t} =\n${createUnionContent(t, defs)}\n`
+const createEmitter = (def: Definition): string => {
+  const param = def.parameters.map(x => `${x.name}: ${x.dataType}`).join(',')
+  const name = `const emit${toDefPascalCase(def)} = (pond: Pond, ${param}): PendingEmission => `
+  const emit = `  pond.emit(tag, {
+    eventType: '${def.name}',
+    ${def.parameters.map(x => `    ${x.name}`).join(',')}
+  })`
+  return `${name}\n${emit}`
 }
+export const createEmittersContent = (defs: Definitions): string =>
+  defs.map(createEmitter).join('\n\n')
+
+export const createUnion = (t: Type, defs: Definitions): string =>
+  `export type ${t} =\n${createUnionContent(t, defs)}\n`
+
+export const createEmitters = (defs: Definitions): string => createEmittersContent(defs)
 
 export const eol = (document: vscode.TextDocument) =>
   document.eol === vscode.EndOfLine.LF ? '\n' : '\r\n'
