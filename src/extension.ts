@@ -17,8 +17,22 @@ export function activate(context: vscode.ExtensionContext): void {
       vscode.window.showInformationMessage('Select your events before execute this extension')
     }
   })
-
+  const eventsEmitterCommand = vscode.commands.registerCommand(
+    'actyx-code-gen.events-emitter',
+    async () => {
+      // The code you place here will be executed every time your command is executed
+      const editor = vscode.window.activeTextEditor
+      if (editor && !editor.selection.isEmpty) {
+        const [definition, position] = await consumeSelectedBlock(editor)
+        const events = convertToDefinitions(definition)
+        await buildEvents(editor, position, events)
+      } else {
+        vscode.window.showInformationMessage('Select your events before execute this extension')
+      }
+    },
+  )
   context.subscriptions.push(eventsCommand)
+  context.subscriptions.push(eventsEmitterCommand)
 }
 
 // this method is called when your extension is deactivated

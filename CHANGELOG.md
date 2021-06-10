@@ -1,5 +1,11 @@
 # Change Log
 
+## version 0.3.0
+
+- add typed emitter in events
+  - command: Actyx: generate events with typed emitter
+  - hot key: Alt+a Alt+e
+
 ## version 0.2.0
 
 - add snippets
@@ -15,3 +21,5 @@
 
 - `create events`
   - create emitter functions
+  - command: Actyx: generate events
+  - hot key: Alt+a e

@@ -1,9 +1,9 @@
 {
   "name": "actyx-alex",
   "displayName": "Actyx code-gen",
-  "publisher": "Alexander89",
+  "publisher": "AlexHalemba",
   "description": "Create new events from a high level syntax and write your fish in a few seconds",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "engines": {
     "vscode": "^1.56.0"
   },
@@ -27,12 +27,21 @@
       {
         "command": "actyx-code-gen.events",
         "title": "Actyx: generate events"
+      },
+      {
+        "command": "actyx-code-gen.events-emitter",
+        "title": "Actyx: generate events with typed emitter"
       }
     ],
     "keybindings": [
       {
         "key": "Alt+a e",
         "command": "actyx-code-gen.events",
+        "when": "editorHasSelection"
+      },
+      {
+        "key": "Alt+a Alt+e",
+        "command": "actyx-code-gen.events-emitter",
         "when": "editorHasSelection"
       }
     ],
