@@ -5,10 +5,7 @@ export const getFileName = (editor: vscode.TextEditor): string =>
   editor.document.uri.fsPath.split(/[\/\\]/).slice(-1)[0] || ''
 
 export const removeFileExtension = (filename: string): string =>
-  filename
-    .split('.')
-    .slice(0, -1)
-    .join('.')
+  filename.split('.').slice(0, -1).join('.')
 
 export const toPascalCase = (str: string): string => {
   const [first = '', ...rest] = str
@@ -56,17 +53,17 @@ export const extractStringFileInfo = (file: string, editor: vscode.TextEditor) =
 export const consumeSelectedBlock = (
   editor: vscode.TextEditor,
 ): Promise<readonly [string, TextPos]> => {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     const selection = editor.selection
     const { start, end } = selection
     const lineLength = editor.document.lineAt(end.line).text.length
     const selectionRange = new vscode.Range(start.line, 0, end.line, lineLength)
     const selectedText = editor.document.getText(selectionRange)
     editor
-      .edit(edit => {
+      .edit((edit) => {
         edit.delete(selectionRange)
       })
-      .then(_ => resolve([selectedText, start]))
+      .then((_) => resolve([selectedText, start]))
   })
 }
 
@@ -74,35 +71,35 @@ type Type = 'Event' | 'Command'
 
 export const createEnumContent = (def: Definitions): string =>
   def
-    .map(x => `${x.name} = '${x.name}'`)
-    .map(x => '  ' + x)
+    .map((x) => `${x.name} = '${x.name}'`)
+    .map((x) => '  ' + x)
     .join(',\n')
 
 export const createEnum = (t: Type, def: Definitions): string =>
   `export enum ${t}Type {\n${createEnumContent(def)},\n}\n`
 
 export const createTypes = (t: Type, defs: Definitions): string =>
-  defs.map(def => createType(t, def)).join('\n') + '\n'
+  defs.map((def) => createType(t, def)).join('\n') + '\n'
 
 const createType = (t: Type, def: Definition): string => {
   const content: ReadonlyArray<any> = [
     `  eventType: '${def.name}'`,
-    ...def.parameters.map(x => `  ${x.name}: ${x.dataType}`),
+    ...def.parameters.map((x) => `  ${x.name}: ${x.dataType}`),
   ]
   return `export type ${toDefPascalCase(def)}${t} = {\n${content.join('\n')}\n}`
 }
 export const createUnionContent = (t: Type, defs: Definitions): string =>
   defs
     .map(toDefPascalCase)
-    .map(x => '  | ' + x + t)
+    .map((x) => '  | ' + x + t)
     .join('\n')
 
 const createEmitter = (def: Definition): string => {
-  const param = def.parameters.map(x => `${x.name}: ${x.dataType}`).join(',')
+  const param = def.parameters.map((x) => `${x.name}: ${x.dataType}`).join(', ')
   const name = `const emit${toDefPascalCase(def)} = (pond: Pond, ${param}): PendingEmission => `
   const emit = `  pond.emit(tag, {
     eventType: '${def.name}',
-    ${def.parameters.map(x => `    ${x.name}`).join(',')}
+${def.parameters.map((x) => `    ${x.name}`).join(',\n')}
   })`
   return `${name}\n${emit}`
 }
