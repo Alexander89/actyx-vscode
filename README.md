@@ -6,7 +6,8 @@ A Visual Studio Code extension to define events from a high-level syntax for the
 
 This extension contributes four commands
 
-- `Actyx: create events`: convert the **selected** events to an event definition and create the emitter functions
+- `Actyx: generate events`: convert the **selected** events to an event definition and create the emitter functions
+- `Actyx: generate events with typed emitter`: convert the **selected** events to an event definition and create the emitter functions that consumes an emitter instand the pond. This emitter function in compatible to state effects as well.
 
 ## Snippets
 
