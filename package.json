@@ -13,26 +13,26 @@
     "type": "git",
     "url": "https://github.com/Alexander89/vscode-actyx-extention"
   },
-  "icon": "images/actyx.png",
+  "icon": "images/logo.png",
   "categories": [
     "Snippets",
     "Formatters"
   ],
   "activationEvents": [
-    "onCommand:actyx.events"
+    "onCommand:actyx-code-gen.events"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "actyx.events",
-        "title": "Actyx: create events"
+        "command": "actyx-code-gen.events",
+        "title": "Actyx: generate events"
       }
     ],
     "keybindings": [
       {
         "key": "Alt+a e",
-        "command": "actyx.events",
+        "command": "actyx-code-gen.events",
         "when": "editorHasSelection"
       }
     ],

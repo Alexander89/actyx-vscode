@@ -6,7 +6,7 @@ import { buildEvents } from './events'
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext): void {
-  const eventsCommand = vscode.commands.registerCommand('actyx.events', async () => {
+  const eventsCommand = vscode.commands.registerCommand('actyx-code-gen.events', async () => {
     // The code you place here will be executed every time your command is executed
     const editor = vscode.window.activeTextEditor
     if (editor && !editor.selection.isEmpty) {
