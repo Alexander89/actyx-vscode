@@ -7,8 +7,12 @@
   "engines": {
     "vscode": "^1.56.0"
   },
+  "author": {
+    "url": "https://github.com/Alexander89",
+    "name": "Alex Halemba"
+  },
   "license": "SEE LICENSE IN LICENSE",
-  "homepage": "https://actyx.com",
+  "homepage": "https://github.com/Alexander89",
   "repository": {
     "type": "git",
     "url": "https://github.com/Alexander89/vscode-actyx-extention"
