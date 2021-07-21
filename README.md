@@ -1,4 +1,4 @@
-# Actyx Pond
+# snippets and event-patterns for Actyx Pond
 
 A Visual Studio Code extension to define events from a high-level syntax for the _Actyx Pond_ framework.
 
@@ -8,6 +8,7 @@ This extension contributes four commands
 
 - `Actyx: generate events`: convert the **selected** events to an event definition and create the emitter functions
 - `Actyx: generate events with typed emitter`: convert the **selected** events to an event definition and create the emitter functions that consumes an emitter instand the pond. This emitter function in compatible to state effects as well.
+- `Actyx: generate blocked events with typed emitter`: Same as _Actyx: generate events with typed emitter_, but consumes the event without the `eventType` as parameter
 
 ## Snippets
 

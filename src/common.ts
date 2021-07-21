@@ -2,6 +2,11 @@ import * as vscode from 'vscode'
 import { Definition, Definitions, TextPos, toDefPascalCase } from './definitionParser'
 
 const emitterType = 'type Emitter<E> = (tags: Tags<E>, event: E) => any'
+const emitterEventsType = `type EventEmitter<E> = (tags: Tags<E>, event: E) => any
+type Emitter<ET extends { eventType: string }> = <EE extends EventEmitter<ET>>(
+  emit: EE,
+  event: Omit<ET, 'eventType'> & Partial<Pick<ET, 'eventType'>>,
+) => ReturnType<EE>`
 
 export const getFileName = (editor: vscode.TextEditor): string =>
   editor.document.uri.fsPath.split(/[\/\\]/).slice(-1)[0] || ''
@@ -121,6 +126,13 @@ ${def.parameters.map((x) => `    ${x.name}`).join(',\n')}
   return `${name}\n${emit}`
 }
 
+const createEmitterV3 = (def: Definition): string =>
+  `const emit${toDefPascalCase(def)}: Emitter<${toDefPascalCase(def)}Event> = (emit, event) =>
+  emit(
+    tags,
+    { eventType: '${def.name}', ...event },
+  )`
+
 export const createUnion = (t: Type, defs: Definitions): string =>
   `export type ${t} =\n${createUnionContent(t, defs)}\n`
 
@@ -129,6 +141,10 @@ export const createEmittersV2 = (document: vscode.TextDocument, defs: Definition
   document.getText().includes(emitterType)
     ? defs.map(createEmitterV2).join('\n\n')
     : emitterType + '\n\n' + defs.map(createEmitterV2).join('\n\n')
+export const createEmittersV3 = (document: vscode.TextDocument, defs: Definitions): string =>
+  document.getText().includes(emitterEventsType)
+    ? defs.map(createEmitterV3).join('\n\n')
+    : emitterEventsType + '\n\n' + defs.map(createEmitterV3).join('\n\n')
 
 export const eol = (document: vscode.TextDocument) =>
   document.eol === vscode.EndOfLine.LF ? '\n' : '\r\n'

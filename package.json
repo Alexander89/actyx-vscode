@@ -3,7 +3,7 @@
   "displayName": "Actyx code-gen",
   "publisher": "AlexHalemba",
   "description": "Create new events from a high level syntax and write your fish in a few seconds",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "engines": {
     "vscode": "^1.56.0"
   },
@@ -20,7 +20,8 @@
   ],
   "activationEvents": [
     "onCommand:actyx-code-gen.events",
-    "onCommand:actyx-code-gen.events-emitter"
+    "onCommand:actyx-code-gen.events-emitter",
+    "onCommand:actyx-code-gen.events-emitter-blocked"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -32,6 +33,10 @@
       {
         "command": "actyx-code-gen.events-emitter",
         "title": "Actyx: generate events with typed emitter"
+      },
+      {
+        "command": "actyx-code-gen.events-emitter-blocked",
+        "title": "Actyx: generate blocked events with typed emitter"
       }
     ],
     "keybindings": [
@@ -44,12 +49,17 @@
         "key": "Alt+a Alt+e",
         "command": "actyx-code-gen.events-emitter",
         "when": "editorHasSelection"
+      },
+      {
+        "key": "Alt+a Ctrl+Alt+e",
+        "command": "actyx-code-gen.events-emitter-blocked",
+        "when": "editorHasSelection"
       }
     ],
     "snippets": [
       {
         "language": "typescript",
-        "path": "./src/fish-snippets.json"
+        "path": "./snippets/pond-snippets.json"
       }
     ]
   },
