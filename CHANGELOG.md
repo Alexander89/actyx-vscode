@@ -1,5 +1,13 @@
 # Change Log
 
+## version 0.4.1
+
+- better typing in `type EventEmitter` and `type Emitter`
+
+## version 0.4.0
+
+- add `Actyx: generate blocked events with typed emitter`
+
 ## version 0.3.1
 
 - add `Actyx: generate events with typed emitter` to the readme

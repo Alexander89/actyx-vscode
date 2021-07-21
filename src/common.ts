@@ -1,8 +1,8 @@
 import * as vscode from 'vscode'
 import { Definition, Definitions, TextPos, toDefPascalCase } from './definitionParser'
 
-const emitterType = 'type Emitter<E> = (tags: Tags<E>, event: E) => any'
-const emitterEventsType = `type EventEmitter<E> = (tags: Tags<E>, event: E) => any
+const emitterType = 'type Emitter<ET> = <E>(tags: Tags<E>, event: E & ET) => any'
+const emitterEventsType = `type EventEmitter<ET> = <E>(tags: Tags<E>, event: E & ET) => any
 type Emitter<ET extends { eventType: string }> = <EE extends EventEmitter<ET>>(
   emit: EE,
   event: Omit<ET, 'eventType'> & Partial<Pick<ET, 'eventType'>>,
