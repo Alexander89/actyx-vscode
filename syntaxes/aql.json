@@ -98,51 +98,6 @@
           "match": "--[ \\w\\W]*\n"
         }
       ]
-    },
-
-    "highlight-aql-off": {
-      "patterns": [
-        {
-          "name": "meta.embedded.block.aql entity.name.param",
-          "match": "(FROM|SELECT|FILTER|AGGREGATE|END)"
-        },
-        {
-          "name": "meta.embedded.block.aql entity.name.param",
-          "match": "allEvents"
-        },
-        {
-          "name": "support.function.aql",
-          "match": "from|to|appId|isLocal"
-        },
-        {
-          "match": "FROM|SELECT|FILTER|AGGREGATE|END|\\_",
-          "name": "keyword.control.aql"
-        },
-        {
-          "match": "allEvents",
-          "name": "keyword.operator.aql"
-        },
-        {
-          "name": "operator.aql",
-          "match": "from|to|appId"
-        },
-        {
-          "name": "keyword.operator.comparison.aql",
-          "match": "=|<|>|<=|>=|!=|≥|≤|≠"
-        },
-        {
-          "name": "keyword.operator.arithmetic.aql",
-          "match": "+|-|*|/|%|^|×|÷"
-        },
-        {
-          "name": "keyword.operator.logical.aql",
-          "match": "\\||&|~|∧|∨|⊻"
-        },
-        {
-          "match": "\\b\\d+\\b",
-          "name": "constant.numeric.sql"
-        }
-      ]
     }
   }
 }

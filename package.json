@@ -3,7 +3,7 @@
   "displayName": "Actyx code-gen",
   "publisher": "AlexHalemba",
   "description": "Create new events from a high level syntax and write your fish in a few seconds",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "engines": {
     "vscode": "^1.56.0"
   },
@@ -74,7 +74,8 @@
           "source.ts",
           "source.tsx",
           "source.js",
-          "source.jsx"
+          "source.jsx",
+          "source.cs"
         ],
         "embeddedLanguages": {
           "meta.embedded.inline.aql": "aql"
@@ -87,7 +88,8 @@
           "source.ts",
           "source.tsx",
           "source.js",
-          "source.jsx"
+          "source.jsx",
+          "source.cs"
         ],
         "embeddedLanguages": {
           "meta.embedded.aql": "aql"

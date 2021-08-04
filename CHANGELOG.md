@@ -4,6 +4,14 @@
 
 - Language server with auto complete for **AQL**
 
+## version 0.5.2
+
+- enable **AQL** for C#
+
+## version 0.5.1
+
+- readme fix
+
 ## version 0.5.0
 
 - syntax highlighting for **AQL**
