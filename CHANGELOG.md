@@ -1,5 +1,14 @@
 # Change Log
 
+## version 0.6.0 (coming)
+
+- Language server with auto complete for **AQL**
+
+## version 0.5.0
+
+- syntax highlighting for **AQL**
+  As soon as a string starts with `FROM` or `FEATURES(` It turns into an AQL string.
+
 ## version 0.4.1
 
 - better typing in `type EventEmitter` and `type Emitter`

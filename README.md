@@ -10,6 +10,14 @@ This extension contributes four commands
 - `Actyx: generate events with typed emitter`: convert the **selected** events to an event definition and create the emitter functions that consumes an emitter instand the pond. This emitter function in compatible to state effects as well.
 - `Actyx: generate blocked events with typed emitter`: Same as _Actyx: generate events with typed emitter_, but consumes the event without the `eventType` as parameter
 
+## AQL Syntax
+
+This extension contributes syntax highlighting for **AQL** in TypeScript and JavaScript files.
+
+As soon as a string starts with `FROM` or `FEATURES(` It turns into an AQL string.
+
+![AqlPreview](https://raw.githubusercontent.com/Alexander89/actyx-vscode/master/images/aql-preview.png)
+
 ## Snippets
 
 | Name              | Prefix      | Description                                |

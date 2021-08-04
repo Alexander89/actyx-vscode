@@ -3,7 +3,7 @@
   "displayName": "Actyx code-gen",
   "publisher": "AlexHalemba",
   "description": "Create new events from a high level syntax and write your fish in a few seconds",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "engines": {
     "vscode": "^1.56.0"
   },
@@ -64,6 +64,34 @@
       {
         "language": "typescript",
         "path": "./snippets/pond-snippets.json"
+      }
+    ],
+    "grammars": [
+      {
+        "path": "./syntaxes/injection.json",
+        "scopeName": "aql-string.injection",
+        "injectTo": [
+          "source.ts",
+          "source.tsx",
+          "source.js",
+          "source.jsx"
+        ],
+        "embeddedLanguages": {
+          "meta.embedded.inline.aql": "aql"
+        }
+      },
+      {
+        "path": "./syntaxes/aql.json",
+        "scopeName": "aql.injection",
+        "injectTo": [
+          "source.ts",
+          "source.tsx",
+          "source.js",
+          "source.jsx"
+        ],
+        "embeddedLanguages": {
+          "meta.embedded.aql": "aql"
+        }
       }
     ]
   },

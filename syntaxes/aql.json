@@ -1,0 +1,148 @@
+{
+  "scopeName": "aql.injection",
+  "injectionSelector": "L:meta.embedded.block.aql",
+  "patterns": [{ "include": "#highlight-aql" }],
+  "repository": {
+    "highlight-aql": {
+      "patterns": [
+        {
+          "name": "keyword.control.aql",
+          "match": "(FEATURES|FROM|SELECT|FILTER|AGGREGATE|END|CASE|TRUE|FALSE|LET)"
+        },
+        {
+          "name": "support.function.aql",
+          "match": "allEvents|isLocal"
+        },
+        {
+          "name": "support.function.aql",
+          "match": "(from|to|appId|isDefined|SUM|FIRST|LAST|MIN|MAX)(?=\\()"
+        },
+        {
+          "name": "keyword.control.aql",
+          "match": "\\_"
+        },
+        {
+          "name": "keyword.operator.comparison.aql",
+          "match": "=|<|>|<=|>=|!=|\\≥|\\≤|\\≠"
+        },
+        {
+          "name": "keyword.operator.arithmetic.aql",
+          "match": "!|¬|\\+|\\*|\\/|%|\\^|\\×|\\÷"
+        },
+        {
+          "name": "keyword.operator.arithmetic.aql",
+          "match": "(?<!-)\\-(?![-\\d])"
+        },
+        {
+          "name": "keyword.operator.logical.aql",
+          "match": "\\||\\&|\\~|\\∧|\\∨|\\⊻"
+        },
+        {
+          "name": "constant.numeric.sql",
+          "match": "\\-(?=\\d)"
+        },
+        {
+          "name": "constant.numeric.sql",
+          "match": "\\.(?=\\d)"
+        },
+        {
+          "match": "\\b[\\de]+\\b",
+          "name": "constant.numeric.sql"
+        },
+        {
+          "name": "meta.brace.round.aql",
+          "match": "[\\(\\)]"
+        },
+        {
+          "name": "meta.brace.rect.aql",
+          "match": "[\\(\\)]"
+        },
+        {
+          "name": "punctuation.separator.key-value.aql",
+          "match": ":(?!=)"
+        },
+        {
+          "name": "keyword.operator.assignment.aql",
+          "match": ":="
+        },
+        {
+          "name": "variable, support.other.variable support.other.variable.aql",
+          "match": "[a-z][a-z0-9_]*(?=\\s*:=)"
+        },
+        {
+          "name": "meta.object.member.aql meta.object-literal.key.aql",
+          "match": "[A-Za-z_]*(?=\\:)"
+        },
+        {
+          "name": "string string.quoted.single.aql meta.feature.beta.aql",
+          "match": "(?<=FEATURES\\().*(?=\\))"
+        },
+        {
+          "name": "string string.quoted.single.aql meta.feature.beta.aql",
+          "match": "(?<=FEATURES\\().*(?=\\))"
+        },
+        {
+          "match": "'\\S*'",
+          "name": "meta.tag.aql string string.quoted.single.aql"
+        },
+        {
+          "match": "(?<=\\S)\\.(?=\\S)(?!\\d)",
+          "name": "punctuation.accessor.aql"
+        },
+        {
+          "match": "((?<=\\.)[a-z_]*)|((?<=\\[)[a-z_]*(?=\\]))",
+          "name": "variable.other.property.aql"
+        },
+        {
+          "name": "comment.line.aql",
+          "match": "--[ \\w\\W]*\n"
+        }
+      ]
+    },
+
+    "highlight-aql-off": {
+      "patterns": [
+        {
+          "name": "meta.embedded.block.aql entity.name.param",
+          "match": "(FROM|SELECT|FILTER|AGGREGATE|END)"
+        },
+        {
+          "name": "meta.embedded.block.aql entity.name.param",
+          "match": "allEvents"
+        },
+        {
+          "name": "support.function.aql",
+          "match": "from|to|appId|isLocal"
+        },
+        {
+          "match": "FROM|SELECT|FILTER|AGGREGATE|END|\\_",
+          "name": "keyword.control.aql"
+        },
+        {
+          "match": "allEvents",
+          "name": "keyword.operator.aql"
+        },
+        {
+          "name": "operator.aql",
+          "match": "from|to|appId"
+        },
+        {
+          "name": "keyword.operator.comparison.aql",
+          "match": "=|<|>|<=|>=|!=|≥|≤|≠"
+        },
+        {
+          "name": "keyword.operator.arithmetic.aql",
+          "match": "+|-|*|/|%|^|×|÷"
+        },
+        {
+          "name": "keyword.operator.logical.aql",
+          "match": "\\||&|~|∧|∨|⊻"
+        },
+        {
+          "match": "\\b\\d+\\b",
+          "name": "constant.numeric.sql"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "scopeName": "aql-string.injection",
+  "injectionSelector": "L:string.quoted, L:string.template",
+  "patterns": [{ "include": "#highlight-string-aql" }],
+  "repository": {
+    "highlight-string-aql": {
+      "patterns": [
+        {
+          "begin": "(?<=\")((FEATURES(?=\\())|FROM)",
+          "end": "(?<!\\\\)(?=\")",
+          "beginCaptures": {
+            "1": {
+              "name": "meta.embedded.block.aql keyword.control.aql"
+            }
+          },
+          "endCaptures": {
+            "1": {
+              "name": "meta.embedded.block.aql.end meta.embedded.block.aql keyword.control.aql"
+            }
+          },
+          "contentName": "meta.embedded.block.aql"
+        },
+        {
+          "begin": "(?<=')((FEATURES(?=\\())|FROM)",
+          "end": "(?<!\\\\)(?=')",
+          "beginCaptures": {
+            "1": {
+              "name": "meta.embedded.block.aql.begin meta.embedded.block.aql keyword.control.aql"
+            }
+          },
+          "endCaptures": {
+            "1": {
+              "name": "meta.embedded.block.aql.end"
+            }
+          },
+          "contentName": "meta.embedded.block.aql"
+        },
+        {
+          "begin": "(?<=\\`)((FEATURES(?=\\())|FROM)",
+          "end": "(?<!\\\\)(?=\\`)",
+          "beginCaptures": {
+            "1": {
+              "name": "meta.embedded.block.aql.begin meta.embedded.block.aql keyword.control.aql"
+            }
+          },
+          "endCaptures": {
+            "1": {
+              "name": "meta.embedded.block.aql.end"
+            }
+          },
+          "contentName": "meta.embedded.block.aql"
+        }
+      ]
+    }
+  }
+}
