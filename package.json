@@ -3,7 +3,7 @@
   "displayName": "Actyx code-gen",
   "publisher": "AlexHalemba",
   "description": "Create new events from a high level syntax and write your fish in a few seconds",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "engines": {
     "vscode": "^1.56.0"
   },
@@ -15,7 +15,7 @@
   "homepage": "https://github.com/Alexander89",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Alexander89/vscode-actyx-extention"
+    "url": "https://github.com/Alexander89/actyx-vscode"
   },
   "icon": "images/logo.png",
   "categories": [
