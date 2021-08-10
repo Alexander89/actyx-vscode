@@ -12,7 +12,7 @@ This extension contributes four commands
 
 ## AQL Syntax
 
-This extension contributes syntax highlighting for **AQL** in TypeScript and JavaScript files.
+This extension contributes syntax highlighting for **AQL** in TypeScript, JavaScript, C#, PHP, Java files.
 
 As soon as a string starts with `FROM` or `FEATURES(` It turns into an AQL string.
 

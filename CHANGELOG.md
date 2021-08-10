@@ -4,6 +4,10 @@
 
 - Language server with auto complete for **AQL**
 
+## version 0.5.3
+
+- enable **AQL** for PHP and JAVA
+
 ## version 0.5.2
 
 - enable **AQL** for C#
