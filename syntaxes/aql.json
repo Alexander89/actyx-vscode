@@ -15,7 +15,7 @@
         },
         {
           "name": "support.function.aql",
-          "match": "(from|to|appId|isDefined|SUM|FIRST|LAST|MIN|MAX)(?=\\()"
+          "match": "(from|to|appId|IsDefined|SUM|FIRST|LAST|MIN|MAX)(?=\\()"
         },
         {
           "name": "keyword.control.aql",
@@ -27,7 +27,7 @@
         },
         {
           "name": "keyword.operator.arithmetic.aql",
-          "match": "!|¬|\\+|\\*|\\/|%|\\^|\\×|\\÷"
+          "match": "!|¬|\\+|\\*|\\/|%|\\^|\\×|\\÷|\\/\\/"
         },
         {
           "name": "keyword.operator.arithmetic.aql",
