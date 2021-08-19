@@ -3,7 +3,7 @@
   "displayName": "Actyx code-gen",
   "publisher": "AlexHalemba",
   "description": "Create new events from a high level syntax and write your fish in a few seconds",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "engines": {
     "vscode": "^1.56.0"
   },
@@ -71,6 +71,7 @@
         "path": "./syntaxes/injection.json",
         "scopeName": "aql-string.injection",
         "injectTo": [
+          "source.rust",
           "source.ts",
           "source.tsx",
           "source.js",
@@ -87,6 +88,7 @@
         "path": "./syntaxes/aql.json",
         "scopeName": "aql.injection",
         "injectTo": [
+          "source.rust",
           "source.ts",
           "source.tsx",
           "source.js",

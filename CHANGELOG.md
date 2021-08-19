@@ -4,6 +4,10 @@
 
 - Language server with auto complete for **AQL**
 
+## version 0.5.4
+
+- enable **AQL** for Rust
+
 ## version 0.5.3
 
 - enable **AQL** for PHP and JAVA
